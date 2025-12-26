@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { Button } from "./button";
 import { useAuthStore } from "../../store/AuthStore";
+import { LogOut } from "lucide-react";
 
 const Layout = () => {
   const { user, logout } = useAuthStore();
@@ -33,7 +34,18 @@ const Layout = () => {
                 </Link>
               </>
             ) : (
-              <Button onClick={logout}>Logout</Button>
+              // <Button onClick={logout}>Logout</Button>
+
+              <Button 
+  onClick={logout}
+  variant="ghost" 
+  className="w-full justify-start gap-3 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-2xl py-6 px-4 transition-colors font-semibold"
+>
+  <div className="p-2 bg-slate-100 group-hover:bg-red-100 rounded-lg transition-colors">
+    <LogOut size={18} /> {/* Using Lucide-React */}
+  </div>
+  Logout
+</Button>
             )}
           </nav>
         </div>
@@ -51,3 +63,4 @@ const Layout = () => {
 };
 
 export default Layout;
+
