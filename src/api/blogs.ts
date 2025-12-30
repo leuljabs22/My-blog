@@ -4,7 +4,7 @@ export interface Blog {
   _id: string;
   title: string;
   content: string;
- 
+  category: string;
   author: {
     _id: string;
     email: string;
@@ -44,7 +44,7 @@ export const getMyBlogs = async (token: string) => {
   return res.data;
 };
 interface CreateBlogPayload {
-  payload: { title: string; content: string };
+  payload: { title: string; content: string; category: string};
   token: string;
 }
 
